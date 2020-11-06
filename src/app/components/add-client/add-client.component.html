@@ -17,7 +17,7 @@
       <div class="form-group">
         <label for="firstName">First Name</label>
         <input type="text" class="form-control" name="firstName" #clientFirstName="ngModel"
-          [ngClass]="{'is-invalid': clientFirstName.errors && clientFirstName.touched}" [(ngModel)]="firstName" required
+          [ngClass]="{'is-invalid': clientFirstName.errors && clientFirstName.touched}" [(ngModel)]="client.firstName" required
           minlength="2">
         <div [hidden]="!clientFirstName.errors?.required" class="invalid-feedback">First name required</div>
         <div [hidden]="!clientFirstName.errors?.minlength" class="invalid-feedback">At least 2 characters are required
@@ -26,7 +26,7 @@
       <div class="form-group">
         <label for="lastName">Last Name</label>
         <input type="text" class="form-control" name="lastName" #clientLastName="ngModel"
-          [ngClass]="{'is-invalid': clientLastName.errors && clientLastName.touched}" [(ngModel)]="lastName" required
+          [ngClass]="{'is-invalid': clientLastName.errors && clientLastName.touched}" [(ngModel)]="client.lastName" required
           minlength="2">
         <div [hidden]="!clientLastName.errors?.required" class="invalid-feedback">Last name required</div>
         <div [hidden]="!clientLastName.errors?.minlength" class="invalid-feedback">At least 2 characters are required
@@ -38,7 +38,7 @@
         class="form-control" 
         name="email" 
         #clientEmail="ngModel"
-        [ngClass]="{'is-invalid': clientEmail.errors && clientEmail.touched}" [(ngModel)]="email" required
+        [ngClass]="{'is-invalid': clientEmail.errors && clientEmail.touched}" [(ngModel)]="client.email" required
         pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$">
         <div [hidden]="!clientEmail.errors?.required" class="invalid-feedback">Email required</div>
         <div [hidden]="!clientEmail.errors?.minlength" class="invalid-feedback">Email is not valid
@@ -47,7 +47,7 @@
       <div class="form-group">
         <label for="phone">Phone</label>
         <input type="text" class="form-control" name="phone" #clientPhone="ngModel"
-          [ngClass]="{'is-invalid': clientPhone.errors && clientPhone.touched}" [(ngModel)]="phone" required
+          [ngClass]="{'is-invalid': clientPhone.errors && clientPhone.touched}" [(ngModel)]="client.phone" required
           minlength="8">
         <div [hidden]="!clientPhone.errors?.required" class="invalid-feedback">Phone required</div>
         <div [hidden]="!clientPhone.errors?.minlength" class="invalid-feedback">Phone is not valid
@@ -59,12 +59,10 @@
         class="form-control" 
         name="balance" 
         #clientBalance="ngModel"
-        [(ngModel)]="balance" 
+        [(ngModel)]="client.balance" 
         [disabled]="disableBalanceOnAdd">
       </div>
       <input type="submit" class="btn btn-primary btn-block" value="submit">
     </form>
-
-
   </div>
 </div>

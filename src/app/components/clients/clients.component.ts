@@ -14,10 +14,11 @@ export class ClientsComponent implements OnInit {
 
   ngOnInit() {
     this.clientService.getClients().subscribe(clients => {
-      // console.log(clients);
-      return this.clients = clients;
-    });
+      console.log(clients);
+       this.clients = clients;
     this.getTotalOwed();
+
+    });
     console.log(this.clients);
 
   }
@@ -25,7 +26,7 @@ export class ClientsComponent implements OnInit {
   getTotalOwed() {
     
     this.totalOwed = this.clients.reduce((total, client) => {
-      return total + client.balance;
+      return total + parseFloat(client.balance.toString());
     }, 0);
   }
 }

@@ -26,7 +26,7 @@ export class AddClientComponent implements OnInit {
   constructor(
     private flashMessage: FlashMessagesService,
     private clientService: ClientService,
-    private router: Router ){}
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,18 +34,18 @@ export class AddClientComponent implements OnInit {
 
   onSubmit({ value, valid }: { value: Client, valid: boolean }) {
 
-    console.log(value,valid);
+    console.log(value, valid);
     if (this.disableBalanceOnAdd) {
       value.balance = 0;
     }
     if (!valid) {
       //show flash message
-      this.flashMessage.show('Please fill out the form correctly',{cssClass: 'alert-danger', timeout:4000})
+      this.flashMessage.show('Please fill out the form correctly', { cssClass: 'alert-danger', timeout: 4000 })
     } else {
-      //show message
-      this.flashMessage.show('New client added',{cssClass: 'alert-success', timeout:4000})
       //add new client
       this.clientService.newClient(value);
+      //show message
+      this.flashMessage.show('New client added', { cssClass: 'alert-success', timeout: 4000 })
       // redirect to dashboard
       this.router.navigate(['/']);
     }
